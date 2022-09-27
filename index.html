@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Php - Data Form</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+    .container-img {
+        background-image: url('./images/cat.png');
+        height: 660px;
+        width: 100%;
+        background-position: 20% 85%;
+        /* background-position: center; */
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    nav {
+        height: 80px;
+        width: 100%;
+    }
+    nav .container-nav {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 80px;
+    }
+    nav .container-nav .navbar-title {
+        line-height: 80px;
+    }
+    nav .container-nav .navbar-title h3 {
+        font-size: 22px;
+        color: #ccc;
+        letter-spacing: .7px;
+        font-weight: normal;
+        transition: all .3s ease;
+        cursor: pointer;
+    }
+    nav .container-nav .navbar-title h3:hover {
+        color: #eee;
+    }
+    nav .container-nav .navbar-links {
+        line-height: 70px;
+    }
+    nav .container-nav .navbar-links ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+    }
+    nav .container-nav .navbar-links ul li {
+        padding: 0px 6px;
+        font-size: 15px;
+        color: #999;
+        cursor: pointer;
+        font-weight: 500;
+        margin-right: 3px;
+        transition: all .5s;
+        cursor: pointer;
+    }
+    nav .container-nav .navbar-links ul li:hover {
+        color: #ddd;
+    }
+    header {
+        height: 85%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    header .form-container {
+        /* background-color: darkcyan; */
+        height: 100%;
+        width: 520px;
+        margin-left: 80px;
+        padding: 15px 0px;
+    }
+    header .form-container .form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    header .form-container .form .form-style  {
+        display: flex;
+        align-items: center;
+        /* justify-content: space-between; */
+        column-gap: 15px;
+        margin-bottom: 18px;
+    }
+    header .form-container .form .form-style .input {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    header .form-container .form .input label {
+        font-size: 13px;
+        margin-bottom: 8px;
+        color: #ccc;
+    }
+    header .form-container .form .input .input-text {
+        padding: 8px;
+        width: 100%;
+        border-radius: 5px;
+        background-color: transparent;
+        border: 2px solid #aaa;
+        /* border: none; */
+        /* border-bottom: 2px solid #aaa; */
+        color: #ccc;
+        caret-color: mediumspringgreen;
+    }
+    header .form-container .form .input .input-text:focus {
+        border: none;
+        /* border-bottom: 2px solid mediumspringgreen; */
+        border: 2px solid mediumspringgreen;
+        background-color: transparent;
+        outline: none;
+    }
+    header .form-container .form .btn-container {
+        width: 100%;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* flex-direction: row-reverse; */
+        margin-top: 7px;
+    }
+    header .form-container .form .btn-container .result-text {
+        margin-left: 10px;
+        font-size: 13px;
+        font-weight: normal;
+        color: #ddd;
+        letter-spacing: .8px;
+    }
+    header .form-container .form .btn-container .submit {
+        padding: 8px 45px;
+        cursor: pointer;
+        font-size: 14px;
+        letter-spacing: .5px;
+        background-color: transparent;
+        border: 2px solid mediumspringgreen;
+        border-radius: 5px;
+        color: #ddd;
+        transition: background-color .5s ease;
+    }
+    header .form-container .form .btn-container .submit:hover {
+        color: #222;
+        background-color: mediumspringgreen;
+        font-weight: 600;
+    }
+</style>
+<body>
+    <div class="container-img">
+        <nav>
+            <div class="container-nav">
+                <div class="navbar-title">
+                    <h3>Form</h3>
+                </div>
+                <div class="navbar-links">
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Products</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <header>
+            <div class="header-container">
+                <div class="form-container">
+                    <form action="#" method="POST" class="form" name="form">
+                        <div class="form-style">
+                            <!-- Firstname -->
+                            <div class="input">
+                                <label for="fname">First Name :</label>
+                                <input type="text" name="fname" id="fname" class="input-text">
+                            </div>
+                            <!-- Lastname -->
+                            <div class="input">
+                                <label for="lname">Last Name :</label>
+                                <input type="text" name="lname" id="lname" class="input-text">
+                            </div>
+                        </div>
+                        <div class="form-style">
+                            <!-- Email address -->
+                            <div class="input">
+                                <label for="email">Email Address :</label>
+                                <input type="text" name="email" id="email" class="input-text">
+                            </div>
+                            <!-- Phone number -->
+                            <div class="input">
+                                <label for="number">Phone Number :</label>
+                                <input type="text" name="number" id="number" class="input-text">
+                            </div>
+                        </div>
+                        <!-- Message -->
+                        <div class="input">
+                            <label for="message" class="label-message">Message :</label>
+                            <p style="font-size: 6px; color: transparent;">hello fucker</p>
+                            <textarea name="message" id="message" rows="7" class="input-text"></textarea>
+                        </div>
+                        <div class="btn-container">
+                            <p class="result-text"></p>
+                            <button type="submit" class="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <script>
+
+        var form = document.getElementsByClassName('form')[0];
+        var text = form.getElementsByClassName('result-text')[0];
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            text.innerHTML = "Sending ...";
+            text.style.color = "#ddd";
+
+            function xml() {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'message.php', true);
+                xhr.onreadystatechange = function() {
+                    if (this.readyState === 4 && this.status === 200) {
+                        if(this.responseText.indexOf("Email and Phone Number is Required !") != -1 || this.responseText.indexOf("Not a valid email Address !") != -1 || this.responseText.indexOf("Phone number must be a Number !") != -1) {
+                            setTimeout(() => {
+                                text.style.color = "rgb(255, 35, 64)";
+                                text.innerHTML = this.responseText;
+                                // console.log(xhr.response);
+                            }, 700);
+                        }
+                    }
+                }
+                const fd = new FormData(form);
+                xhr.send(fd);
+            }
+    
+            xml();
+        });
+        
+        
+
+    </script>
+</body>
+</html>
